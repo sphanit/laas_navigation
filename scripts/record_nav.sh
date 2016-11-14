@@ -1,0 +1,52 @@
+#!/bin/sh
+
+rosbag record -o nav \
+    /amcl_pose \
+    /clock \
+    /cmd_vel \
+    /human_pose_prediction/parameter_descriptions \
+    /human_pose_prediction/predicted_human_poses \
+    /map \
+    /map_metadata \
+    /move_base_node/NavfnROS/plan \
+    /move_base_node/TebLocalPlannerROS/human_local_plan_poses \
+    /move_base_node/TebLocalPlannerROS/human_local_plans \
+    /move_base_node/TebLocalPlannerROS/local_plan \
+    /move_base_node/TebLocalPlannerROS/local_plan_poses \
+    /move_base_node/TebLocalPlannerROS/parameter_descriptions \
+    /move_base_node/current_goal \
+    /move_base_node/global_costmap/costmap \
+    /move_base_node/global_costmap/costmap_updates \
+    /move_base_node/global_costmap/footprint \
+    /move_base_node/global_costmap/inflater/parameter_descriptions \
+    /move_base_node/global_costmap/parameter_descriptions \
+    /move_base_node/global_costmap/static_map/parameter_descriptions \
+    /move_base_node/local_costmap/costmap \
+    /move_base_node/local_costmap/costmap_updates \
+    /move_base_node/local_costmap/footprint \
+    /move_base_node/local_costmap/inflater/parameter_descriptions \
+    /move_base_node/local_costmap/parameter_descriptions \
+    /move_base_node/local_costmap/static_map/parameter_descriptions \
+    /move_base_node/parameter_descriptions \
+    /move_humans_node/MultiGoalPlanner/parameter_descriptions \
+    /move_humans_node/MultiGoalPlanner/plans \
+    /move_humans_node/MultiGoalPlanner/plans_poses \
+    /move_humans_node/TeleportController/parameter_descriptions \
+    /move_humans_node/TeleportController/plans \
+    /move_humans_node/controller_costmap/costmap \
+    /move_humans_node/controller_costmap/costmap_updates \
+    /move_humans_node/controller_costmap/footprint \
+    /move_humans_node/controller_costmap/inflation_layer/parameter_descriptions \
+    /move_humans_node/controller_costmap/obstacle_layer/parameter_descriptions \
+    /move_humans_node/controller_costmap/parameter_descriptions \
+    /move_humans_node/current_goals \
+    /move_humans_node/human_markers \
+    /move_humans_node/humans \
+    /move_humans_node/parameter_descriptions \
+    /move_humans_node/planner_costmap/costmap \
+    /move_humans_node/planner_costmap/costmap_updates \
+    /move_humans_node/planner_costmap/footprint \
+    /move_humans_node/planner_costmap/inflater/parameter_descriptions \
+    /move_humans_node/planner_costmap/parameter_descriptions \
+    /move_humans_node/planner_costmap/static_map/parameter_descriptions \
+    /odom

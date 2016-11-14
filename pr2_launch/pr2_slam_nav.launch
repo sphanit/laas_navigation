@@ -1,0 +1,7 @@
+<launch>
+  <!-- slam -->
+  <include file="$(find laas_navigation)/pr2_launch/pr2_slam.launch"/>
+
+  <!-- navigation -->
+  <include file="$(find laas_navigation)/pr2_launch/pr2_nav.launch"/>
+</launch>

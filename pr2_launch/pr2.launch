@@ -1,0 +1,7 @@
+<launch>
+  <!-- start robot -->
+  <include file="/etc/ros/indigo/robot.launch"/>
+
+  <!-- tuck arms after start -->
+  <include file="$(find laas_navigation)/pr2_launch/pr2_tuck_arms.launch"/>
+</launch>

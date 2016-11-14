@@ -1,0 +1,27 @@
+<launch>
+  <!-- first launch the pointing head controller -->
+  <node pkg="pr2_point_head" type="pr2_point_head" name="pr2_point_head" output="screen">
+    <param name="point_head_topic" value="/hanp_head_behavior/point_head"/>
+    <param name="pointing_frame" value="head_plate_frame"/>
+    <!--<param name="point_head_client_name" value="/head_traj_controller/point_head_action"/>-->
+  </node>
+
+  <!-- hanp head behavior -->
+  <node pkg="hanp_head_behavior" type="hanp_head_behavior" name="hanp_head_behavior" output="screen">
+    <param name="robot_base_frame" value="base_link"/>
+    <!--<param name="local_plan_sub_topic" value="/move_base_node/HANPLocalPlanner/local_plan"/>-->
+    <!--<param name="human_sub_topic" value="/fake_humans_publisher/humans"/>-->
+    <!--<param name="human_sub_topic" value="/optitrack_person/tracked_persons"/>-->
+
+    <param name="aliveness_weight" value="0.9"/>
+    <param name="interaction_weight" value="1.0"/>
+    <param name="social_attention_weight" value="1.0"/>
+    <param name="intent_projection_weight" value="1.0"/>
+
+    <param name="point_head_height" value="1.1"/>
+    <param name="max_gma" value="1.05" />
+    <param name="visibility_angle" value="0.1"/>
+
+    <param name="local_plan_end_extend" value="0.7"/>
+  </node>
+</launch>

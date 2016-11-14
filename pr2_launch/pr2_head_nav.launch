@@ -1,0 +1,7 @@
+<launch>
+  <!-- head-behavior -->
+  <include file="$(find laas_navigation)/pr2_launch/hanp_head_behavior.launch"/>
+
+  <!-- navigation -->
+  <include file="$(find laas_navigation)/pr2_launch/pr2_nav.launch"/>
+</launch>

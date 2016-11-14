@@ -1,0 +1,14 @@
+# global planning frequency, when 0 only plans on new goal once
+planner_frequency: 0.0
+
+# local planner frequncy, cmd_vel is published at this rate
+controller_frequency: 6.0
+
+# time to wait for global planner before starting recovery
+planner_patience: 5.0
+
+# time to wait for local planner before starting recovery
+controller_patience: 15.0
+
+# wheter to use recovery behaviors
+recovery_behavior_enabled: false
