@@ -2,6 +2,10 @@
   <!-- run gmapping -->
   <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
     <param name="odom_frame" value="odom_combined"/>
+    <param name="xmin" value="-15.0"/>
+    <param name="ymin" value="-15.0"/>
+    <param name="xmax" value="15.0"/>
+    <param name="ymax" value="15.0"/>
     <remap from="scan" to="base_scan"/>
   </node>
 </launch>
