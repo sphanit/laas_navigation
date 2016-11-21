@@ -1,0 +1,34 @@
+<launch>
+  <!-- args for joy node -->
+  <arg name="joy_dev" default="/dev/input/js1" />
+  <arg name="deadzone" default="0.05" />
+  <arg name="autorepeat_rate" default="20" />
+
+  <!-- args for teleop_twist_joy node -->
+  <arg name="axis_linear" default="1" doc="left thumb stick vertical" />
+  <arg name="scale_linear" default="0.4" />
+  <arg name="scale_linear_turbo" default="1.0" />
+  <arg name="axis_angular" default="0" doc="left thumb stick horizontal" />
+  <arg name="scale_angular" default="0.4" />
+  <arg name="enable_button" default="4" doc="left break button" />
+  <arg name="enable_turbo_button" default="0" doc="A button" />
+
+  <!-- start joy node -->
+  <node pkg="joy" type="joy_node" name="joy_node">
+    <param name="dev" value="$(arg joy_dev)" />
+    <param name="deadzone" value="$(arg deadzone)" />
+    <param name="autorepeat_rate" value="$(arg autorepeat_rate)" />
+  </node>
+
+  <!-- start teleop_twist_joy node -->
+  <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
+    <remap from="cmd_vel" to="base_controller/command" />
+    <param name="axis_linear" value="$(arg axis_linear)" />
+    <param name="scale_linear" value="$(arg scale_linear)" />
+    <param name="scale_linear_turbo" value="$(arg scale_linear_turbo)" />
+    <param name="axis_angular" value="$(arg axis_angular)" />
+    <param name="scale_angular" value="$(arg scale_angular)" />
+    <param name="enable_button" value="$(arg enable_button)" />
+    <param name="enable_turbo_button" value="$(arg enable_turbo_button)" />
+  </node>
+</launch>
