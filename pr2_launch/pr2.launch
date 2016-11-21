@@ -2,6 +2,19 @@
   <!-- start robot -->
   <include file="/etc/ros/indigo/robot.launch"/>
 
+  <!-- start battery alert -->
+  <node pkg="pr2_battery_alert" type="pr2_battery_alert.py" name="pr2_battery_alert" output="screen" />
+
+  <!-- fix broken tilt laser -->
+  <node pkg="tf" type="static_transform_publisher" name="tilt_link_publisher"
+    args="0.099 0.0 0.227 0.0 0.3 0.0 /torso_lift_link /laser_tilt_mount_link 50"/>
+
   <!-- tuck arms after start -->
   <include file="$(find laas_navigation)/pr2_launch/pr2_tuck_arms.launch"/>
+
+  <!-- map to optitrack -->
+  <include file="$(find laas_navigation)/launch/map_optitrack_transform.launch"/>
+
+  <!-- rosbridge -->
+  <!--<include file="$(find laas_navigation)/pr2_launch/rosbridge.launch"/>-->
 </launch>
