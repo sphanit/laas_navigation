@@ -1,29 +1,30 @@
 <launch>
-    <!-- set logging level -->
-    <env name="ROSCONSOLE_CONFIG_FILE" value="$(find laas_navigation)/launch/custom_rosconsole.conf"/>
+  <machine name="c1" address="c1" env-loader="$(find laas_navigation)/../../devel/env.sh" default="true" />
+  <machine name="c2" address="c2" env-loader="$(find laas_navigation)/../../devel/env.sh" />
 
-    <!--  publish fixed frame transformations and launch fake_human_publisher -->
-    <!--<node pkg="tf" type="static_transform_publisher" name="humans_frmae_transform"
-      args="0 0 0 0 0 0 /map /optitrack 20"/>-->
+  <!-- set logging level -->
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find laas_navigation)/launch/custom_rosconsole.conf"/>
 
-    <!-- publish fake humans -->
-    <!--<node pkg="hanp_msgs" type="fake_humans_publisher" name="fake_humans_publisher" output="screen">
-        <rosparam file="$(find laas_navigation)/pr2_move_base_config/fake_humans.yaml" command="load"/>
-    </node>-->
+  <!--  publish fixed frame transformations and launch fake_human_publisher -->
+  <!--<node pkg="tf" type="static_transform_publisher" name="humans_frmae_transform"
+    args="0 0 0 0 0 0 /map /optitrack 20"/>
+  <node pkg="hanp_msgs" type="fake_humans_publisher" name="fake_humans_publisher" output="screen">
+    <param name="publish_markers" type="bool" value="true"/>
+    <rosparam file="$(find laas_navigation)/pr2_move_base_config/fake_humans.yaml" command="load"/>
+  </node>-->
 
-    <!-- filtering tracked persons from the laser scans, for the local-planning -->
-    <!-- <include file="$(find hanp_filters)/launch/laser_filter.launch" /> -->
+  <!-- filtering tracked persons from the laser scans, for the local-planning -->
+  <!-- <include file="$(find hanp_filters)/launch/laser_filter.launch" /> -->
 
   <!-- human pose prediction, for the local-planning -->
   <!--<node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen">
     <remap from="/human_pose_prediction/tracked_humans" to="/fake_humans_publisher/humans"/>
-    <remap from="/human_pose_prediction/tracked_humans" to="/move_humans_node/humans"/>
     <remap from="human_pose_prediction/tracked_humans" to="optitrack_person/tracked_persons"/>
     <param name="velobs_mul" value="1.0"/>
     <param name="velscale_mul" value="2.0"/>
   </node>-->
 
-  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
+  <node machine="c2" pkg="move_base" type="move_base" name="move_base_node" output="screen">
     <remap from="scan" to="base_scan"/>
     <remap from="cmd_vel" to="base_controller/command"/>
     <!--<remap from="move_base_node/global_costmap/hanp/humans" to="fake_humans_publisher/humans"/>-->

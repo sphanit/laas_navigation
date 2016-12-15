@@ -7,13 +7,13 @@
     args="0 0 0 0 0 0 /map /humans_frame 20"/>
   <node pkg="hanp_msgs" type="fake_humans_publisher" name="fake_humans_publisher" output="screen">
     <param name="publish_markers" type="bool" value="true"/>
-    <rosparam file="$(find laas_navigation)/morse_pr2_launch/fake_humans.yaml" command="load"/>
+    <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/fake_humans.yaml" command="load"/>
   </node>-->
 
   <!-- filtering tracked persons from the laser scans, for the local-planning -->
   <!--<include file="$(find hanp_filters)/launch/laser_filter.launch" />-->
 
-  <!-- simple human pose prediction, for the local-planning -->
+  <!-- human pose prediction, for the local-planning -->
   <!--<node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen">
     <remap from="/human_pose_prediction/tracked_humans" to="/fake_humans_publisher/humans"/>
     <remap from="/human_pose_prediction/tracked_humans" to="/move_humans_node/humans"/>
