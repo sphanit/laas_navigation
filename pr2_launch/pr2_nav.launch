@@ -52,4 +52,7 @@
     <!--<rosparam file="$(find laas_navigation)/pr2_move_base_config/hanp_local_planner_params.yaml" command="load" ns="HANPLocalPlanner" />-->
     <!--<rosparam file="$(find laas_navigation)/pr2_move_base_config/hateb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />-->
   </node>
+
+  <!-- rosbridge -->
+  <!--<include file="$(find laas_navigation)/pr2_launch/rosbridge.launch"/>-->
 </launch>

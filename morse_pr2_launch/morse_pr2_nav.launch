@@ -53,4 +53,7 @@
     <param name="local_plan_sub_topic" value="/move_base_node/HANPLocalPlanner/local_plan" />
     <param name="human_sub_topic" value="/fake_humans_publisher/humans" />
   </node>-->
+
+  <!-- rosbridge -->
+  <!--<include file="$(find laas_navigation)/pr2_launch/rosbridge.launch"/>-->
 </launch>
