@@ -27,6 +27,10 @@
     <!-- load additional move_base params -->
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/move_base_params.yaml" command="load" />
 
+    <!-- specify the global planner for the PR2 -->
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <!--<param name="base_global_planner" value="navfn/NavfnROS" />-->
+
     <!-- specify the local planner -->
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
     <!--<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
