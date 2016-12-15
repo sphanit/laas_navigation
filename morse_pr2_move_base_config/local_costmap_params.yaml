@@ -1,36 +1,18 @@
-# use rolling window version of costmap, as local costmap is not static
-rolling_window: true
-static_map: false
-
-# publish and update frequency of local costmap
-publish_frequency: 2.0 # set to 0 if not debugging
-update_frequency: 5.0 # maximum -> same as controller_frequency
-
-# width and height of the map in meters
-width: 15.0
-height: 15.0
-
-# resolution of the map in meters/cell
+publish_frequency: 2.0
+update_frequency: 12.0
+width: 10.0
+height: 10.0
 resolution: 0.1
-
-# origin of the map in the global frame
 origin_x: 0.0
 origin_y: 0.0
-
-# local costmap will operate in this frame, transform between this and robot-base frame must be available
 global_frame: odom
-
-# name of the frame at base-link of the robot
 robot_base_frame: base_link
-#origin_frame: base_link
-
-# specifications for the footprint of the robot as polygon (in meters)
 footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.325, -0.325]]
 footprint_padding: 0.05
-
-# select costmap layers  and sources to use for the local-planning
+rolling_window: true
+static_map: false
 plugins:
-  - {name: static_map, type: "costmap_2d::StaticLayer"}
+  - {name: static, type: "costmap_2d::StaticLayer"}
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
   - {name: inflater, type: "costmap_2d::InflationLayer"}
 obstacles:
