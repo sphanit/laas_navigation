@@ -1,0 +1,19 @@
+publish_frequency: 0.0
+update_frequency: 2.0
+width: 12.0
+height: 12.0
+resolution: 0.1
+origin_x: 0.0
+origin_y: 0.0
+global_frame: odom
+robot_base_frame: base_link
+footprint: [[-0.26, -0.08], [-0.26, 0.08], [0.05, 0.28], [0.2, 0.2], [0.2, -0.2], [0.05, -0.28]]
+footprint_padding: 0.05
+rolling_window: true
+static_map: false
+plugins:
+  - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+obstacles:
+  observation_sources: base_scan
+  base_scan: {data_type: LaserScan, sensor_frame: /base_laser_link, obstacle_range: 5.0, raytrace_range: 5.5, expected_update_rate: 0.3, marking: true, clearing: true}
+  footprint_clearing_enabled: false
