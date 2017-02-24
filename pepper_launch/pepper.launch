@@ -1,0 +1,22 @@
+<launch>
+  <env name="PYTHONPATH" value="$(env PYTHONPATH)" />
+  <arg name="nao_ip" default="$(optenv NAO_IP pepper)" />
+  <arg name="nao_port" default="$(optenv NAO_PORT 9559)" />
+  <arg name="force_python" default="true" />
+  <arg name="path_to_map" default="" />
+
+  <include file="$(find pepper_description)/launch/pepper_publisher.launch" />
+
+  <!-- nao driver works for pepper -->
+  <include file="$(find naoqi_driver)/launch/naoqi_driver.launch">
+    <arg name="nao_ip" value="$(arg nao_ip)" />
+  </include>
+
+  <!-- sensor data -->
+  <include file="$(find pepper_sensors_py)/launch/sonar.launch">
+    <arg name="nao_ip" value="$(arg nao_ip)" />
+  </include>
+  <include file="$(find pepper_sensors_py)/launch/laser.launch">
+    <arg name="nao_ip" value="$(arg nao_ip)" />
+  </include>
+</launch>

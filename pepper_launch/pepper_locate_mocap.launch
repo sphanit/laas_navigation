@@ -1,0 +1,22 @@
+<launch>
+  <env name="PYTHONPATH" value="$(env PYTHONPATH)" />
+  <arg name="nao_ip" default="$(optenv NAO_IP pepper)" />
+  <arg name="nao_port" default="$(optenv NAO_PORT 9559)" />
+
+  <!-- start pepper drivers -->
+  <!--<include file="$(find laas_navigation)/pepper_launch/pepper.launch"/>-->
+
+  <!-- map to optitrack transform -->
+  <node pkg="tf" type="static_transform_publisher" name="optitrack_map_transform"
+    args="5.8 0.3 0.0 0.0 0.0 0.0 /map /optitrack 100"/>
+
+    <!-- map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream.yaml">
+    <param name="frame_id" value="/map"/>
+  </node>
+
+  <node name="mocap_localization" pkg="mocap_localization" type="mocap_localization_node" output="screen">
+    <param name="publish_mocap_pose" value="false"/>
+    <param name="broadcast_tf" value="false"/>
+  </node>
+</launch>

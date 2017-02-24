@@ -1,0 +1,19 @@
+publish_frequency: 4.0
+update_frequency: 4.0
+width: 7.0
+height: 7.0
+resolution: 0.25
+origin_x: 0.0
+origin_y: 0.0
+global_frame: odom
+robot_base_frame: base_link
+footprint: [[-0.26, -0.08], [-0.26, 0.08], [0.05, 0.28], [0.2, 0.2], [0.2, -0.2], [0.05, -0.28]]
+footprint_padding: 0.05
+rolling_window: true
+static_map: false
+plugins:
+  - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+obstacles:
+  observation_sources: /naoqi_driver_node/laser
+  /naoqi_driver_node/laser: {data_type: LaserScan, sensor_frame: base_link, obstacle_range: 5.0, raytrace_range: 10.0, expected_update_rate: 0.3, marking: true, clearing: true, inf_is_valid: true}
+  footprint_clearing_enabled: false

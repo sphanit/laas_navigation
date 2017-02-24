@@ -1,0 +1,14 @@
+publish_frequency: 1
+update_frequency: 1
+global_frame: map_nav
+robot_base_frame: base_link
+rolling_window: false
+origin_x: -5.890381
+origin_y: 7.928729
+footprint: [[-0.26, -0.08], [-0.26, 0.08], [0.05, 0.28], [0.2, 0.2], [0.2, -0.2], [0.05, -0.28]]
+plugins:
+  - {name: static_map, type: "costmap_2d::StaticLayer"}
+  - {name: inflater, type: "costmap_2d::InflationLayer"}
+#  - {name: hanp, type: "hanp_layer::HANPLayer"}
+inflater:
+    inflation_radius: 0.4

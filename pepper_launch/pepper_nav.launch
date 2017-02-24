@@ -1,0 +1,28 @@
+<launch>
+  <!-- set logging level -->
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find laas_navigation)/launch/custom_rosconsole.conf"/>
+
+  <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen">-->
+  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
+    <!-- load additional move_base params -->
+    <rosparam file="$(find laas_navigation)/pepper_move_base_config/move_base_params.yaml" command="load" />
+
+    <!-- specify the global planner for the pepper -->
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+
+    <!-- specify the local planner -->
+    <!--<param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />-->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+
+    <!-- load costmap specific parameters -->
+    <rosparam file="$(find laas_navigation)/pepper_move_base_config/global_costmap_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find laas_navigation)/pepper_move_base_config/local_costmap_params.yaml" command="load" ns="local_costmap" />
+
+    <!-- load local planner parameters -->
+    <!--<rosparam file="$(find laas_navigation)/pepper_move_base_config/base_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS" />-->
+    <rosparam file="$(find laas_navigation)/pepper_move_base_config/hateb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />
+  </node>
+
+  <!-- rosbridge -->
+  <!--<include file="$(find laas_navigation)/pepper_launch/rosbridge.launch"/>-->
+</launch>
