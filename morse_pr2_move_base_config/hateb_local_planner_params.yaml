@@ -22,7 +22,7 @@ min_vel_x: 0.02
 max_vel_x_backwards: 0.05
 min_vel_x_backwards: 0.02
 max_vel_theta: 1.2
-min_vel_theta: 0.05
+min_vel_theta: 0.1
 acc_lim_x: 0.3
 acc_lim_theta: 0.4
 min_turning_radius: 0.0
@@ -48,7 +48,7 @@ max_human_vel_theta: 1.1
 human_acc_lim_x: 0.6
 human_acc_lim_theta: 0.8
 use_external_prediction: True
-predict_human_behind_robot: False
+predict_human_behind_robot: True
 ttc_threshold: 5.0
 human_robot_ttc_scale_alpha: 10.0
 human_min_samples: 3

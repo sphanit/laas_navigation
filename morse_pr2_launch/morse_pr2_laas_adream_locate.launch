@@ -4,9 +4,9 @@
 
   <!-- start acml for localization -->
   <node name="amcl" pkg="amcl" type="amcl">
-    <remap from="scan" to="base_scan"/>
-    <param name="initial_pose_x" value="0.0"/>
-    <param name="initial_pose_y" value="0.0"/>
+    <!-- <remap from="scan" to="base_scan"/>-->
+    <param name="initial_pose_x" value="2.0"/>
+    <param name="initial_pose_y" value="2.0"/>
     <param name="initial_pose_a" value="0.0"/>
   </node>
 </launch>
