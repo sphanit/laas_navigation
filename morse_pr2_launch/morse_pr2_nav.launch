@@ -14,13 +14,13 @@
   <!--<include file="$(find hanp_filters)/launch/laser_filter.launch" />-->
 
   <!-- human pose prediction, for the local-planning -->
-  <!--<node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen">
+  <node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen">
     <remap from="/human_pose_prediction/tracked_humans" to="/fake_humans_publisher/humans"/>
     <remap from="/human_pose_prediction/tracked_humans" to="/move_humans_node/humans"/>
     <remap from="/human_pose_prediction/external_human_paths" to="/move_humans_node/MultiGoalPlanner/plans"/>
     <param name="velobs_mul" value="1.0"/>
     <param name="velscale_mul" value="2.0"/>
-  </node>-->
+  </node>
 
   <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen">-->
   <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
@@ -32,20 +32,20 @@
     <!--<param name="base_global_planner" value="navfn/NavfnROS" />-->
 
     <!-- specify the local planner -->
-    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
+    <!--<param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" /> -->
     <!--<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
     <!--<param name="base_local_planner" value="hanp_local_planner/HANPLocalPlanner" />-->
-    <!--<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />-->
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
 
     <!-- load costmap specific parameters -->
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/global_costmap_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/local_costmap_params.yaml" command="load" ns="local_costmap" />
 
     <!-- load local planner parameters -->
-    <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/base_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS" />
+    <!--<rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/base_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS" /> -->
     <!--<rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/dwa_planner_params.yaml" command="load" ns="DWAPlannerROS" /> -->
     <!--<rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/hanp_local_planner_params.yaml" command="load" ns="HANPLocalPlanner" /> -->
-    <!--<rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/hateb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />-->
+    <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/hateb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />
   </node>
 
   <!-- hanp head behavior -->
@@ -55,5 +55,5 @@
   </node>-->
 
   <!-- rosbridge -->
-  <!--<include file="$(find laas_navigation)/pr2_launch/rosbridge.launch"/>-->
+  <include file="$(find laas_navigation)/pr2_launch/rosbridge.launch"/>
 </launch>
