@@ -23,6 +23,8 @@
     <rosparam file="$(find laas_navigation)/pepper_move_base_config/hateb_local_planner_params.yaml" command="load" ns="TebLocalPlannerROS" />
   </node>
 
+  <include file="$(find hanp_prediction)/launch/hanp_prediction.launch" />
+
   <!-- rosbridge -->
-  <!--<include file="$(find laas_navigation)/pepper_launch/rosbridge.launch"/>-->
+  <include file="$(find laas_navigation)/pepper_launch/rosbridge.launch"/>
 </launch>
