@@ -2,7 +2,7 @@ publish_frequency: 4.0
 update_frequency: 4.0
 width: 7.0
 height: 7.0
-resolution: 0.25
+resolution: 0.10
 origin_x: 0.0
 origin_y: 0.0
 global_frame: odom
@@ -16,5 +16,5 @@ plugins:
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
 obstacles:
   observation_sources: /naoqi_driver_node/laser
-  /naoqi_driver_node/laser: {data_type: LaserScan, sensor_frame: base_link, obstacle_range: 5.0, raytrace_range: 10.0, expected_update_rate: 0.0, marking: true, clearing: true, inf_is_valid: true}
+  /naoqi_driver_node/laser: {data_type: LaserScan, sensor_frame: base_link, obstacle_range: 5.0, raytrace_range: 10.0, expected_update_rate: 0.5, marking: true, clearing: true, inf_is_valid: true}
   footprint_clearing_enabled: false
