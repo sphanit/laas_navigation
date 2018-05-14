@@ -15,6 +15,6 @@ transform_tolerance: 0.5
 plugins:
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
 obstacles:
-  observation_sources: /naoqi_driver_node/laser
-  /naoqi_driver_node/laser: {data_type: LaserScan, sensor_frame: base_link, obstacle_range: 5.0, raytrace_range: 10.0, expected_update_rate: 0.5, marking: true, clearing: true, inf_is_valid: true}
+  observation_sources: /navigation/extended_laser
+  /navigation/extended_laser: {data_type: LaserScan, sensor_frame: base_link, obstacle_range: 5.0, raytrace_range: 10.0, expected_update_rate: 3.0, marking: true, clearing: true, inf_is_valid: true}
   footprint_clearing_enabled: false
