@@ -81,6 +81,7 @@ costmap_converter/CostmapToLinesDBSRANSAC:
     ransac_filter_remaining_outlier_pts: False
     convex_hull_min_pt_separation: 0.1
 
+
 # Optimization
 
 no_inner_iterations: 8
@@ -107,6 +108,7 @@ weight_viapoint: 0.05
 weight_human_viapoint: 0.2
 weight_human_robot_safety: 20.0
 weight_human_robot_ttc: 20.0
+weight_human_robot_ttcplus: 20.0
 weight_human_robot_dir: 20.0
 selection_alternative_time_cost: False
 use_human_robot_safety_c: True

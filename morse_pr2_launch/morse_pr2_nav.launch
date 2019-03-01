@@ -18,13 +18,16 @@
     <remap from="/human_pose_prediction/tracked_humans" to="/fake_humans_publisher/humans"/>
     <remap from="/human_pose_prediction/tracked_humans" to="/move_humans_node/humans"/>
     <remap from="/human_pose_prediction/external_human_paths" to="/move_humans_node/MultiGoalPlanner/plans"/>
+    <remap from="/move_base_node/NavfnROS/make_plan" to="/move_base_node/make_plan" />
     <param name="velobs_mul" value="1.0"/>
     <param name="velscale_mul" value="2.0"/>
+    <param name="get_plan_srv_name" value="/move_base_node/GlobalPlanner/make_plan" />
   </node>
 
   <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen">-->
   <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
     <!-- load additional move_base params -->
+    <!-- <remap from="/cmd_vel" to="/cmd_vel_fake" /> -->
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/move_base_params.yaml" command="load" />
 
     <!-- specify the global planner for the PR2 -->
