@@ -1,0 +1,6 @@
+<launch>
+  <node name="map2odom" pkg="tf" type="static_transform_publisher" args="2 17 0 -90 0 0 map odom 100" />
+  <!-- start map_server with laas_adream map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream.yaml"/>
+
+</launch>

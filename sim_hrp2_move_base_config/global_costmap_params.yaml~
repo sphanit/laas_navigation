@@ -1,0 +1,17 @@
+publish_frequency: 0.1
+update_frequency: 0.1
+global_frame: map
+robot_base_frame: base_link
+rolling_window: false
+footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
+plugins:
+  - {name: static_map, type: "costmap_2d::StaticLayer"}
+  - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+  - {name: inflater, type: "costmap_2d::InflationLayer"}
+#  - {name: hanp, type: "hanp_layer::HANPLayer"}
+obstacles:
+  observation_sources: /scan
+  /scan: {data_type: LaserScan, sensor_frame: /base_laser_link, expected_update_rate: 0.3, marking: true, clearing: true}
+  footprint_clearing_enabled: false
+inflater:
+    inflation_radius: 0.4
