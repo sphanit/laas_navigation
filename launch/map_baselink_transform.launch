@@ -1,4 +1,4 @@
 <launch>
-  <node pkg="tf" type="static_transform_publisher" name="map_baselink_transform"
-    args="-2 0 0 0 0 0 /base_link /map 100"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_baselink_transform"
+    args="-2 0 0 0 0 0 base_link map"/>
 </launch>
