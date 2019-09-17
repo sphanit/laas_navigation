@@ -14,7 +14,7 @@
   <!--<include file="$(find hanp_filters)/launch/laser_filter.launch" />-->
 
   <!-- human pose prediction, for the local-planning -->
-  <node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen">
+  <node pkg="hanp_prediction" type="human_pose_prediction" name="human_pose_prediction" output="screen" >
     <remap from="/human_pose_prediction/tracked_humans" to="/fake_humans_publisher/humans"/>
     <remap from="/human_pose_prediction/tracked_humans" to="/move_humans_node/humans"/>
     <remap from="/human_pose_prediction/external_human_paths" to="/move_humans_node/MultiGoalPlanner/plans"/>
@@ -23,7 +23,7 @@
   </node>
 
   <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen">-->
-  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
+  <node pkg="move_base" type="move_base" name="move_base_node" output="screen" >
     <!-- load additional move_base params -->
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/move_base_params.yaml" command="load" />
 

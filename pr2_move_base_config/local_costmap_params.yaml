@@ -20,4 +20,4 @@ obstacles:
   /base_scan: {data_type: LaserScan, sensor_frame: base_laser_link, expected_update_rate: 0.3, marking: true, clearing: true}
   footprint_clearing_enabled: true
 inflater:
-  inflation_radius: 0.5
+  inflation_radius: 0.4
