@@ -3,10 +3,10 @@
   <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream.yaml"/>
 
   <!-- start acml for localization -->
-  <node name="amcl" pkg="amcl" type="amcl">
-    <!-- <remap from="scan" to="base_scan"/>-->
+  <!-- <node name="amcl" pkg="amcl" type="amcl">
     <param name="initial_pose_x" value="2.0"/>
     <param name="initial_pose_y" value="2.0"/>
     <param name="initial_pose_a" value="0.0"/>
-  </node>
+  </node> -->
+
 </launch>
