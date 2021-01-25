@@ -1,5 +1,5 @@
-publish_frequency: 0.1
-update_frequency: 0.1
+publish_frequency: 10
+update_frequency: 10
 global_frame: map
 robot_base_frame: base_link
 rolling_window: false
