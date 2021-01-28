@@ -1,5 +1,5 @@
 #image: new_map_imported_modified.pgm
-image: laas_adream.pgm
+image: map.pgm
 resolution: 0.050000
 #origin: [0.0, 0.000000, 0.000000]
 origin: [-2.000000, -8.000000, 0.000000]

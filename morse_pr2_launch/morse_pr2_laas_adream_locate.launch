@@ -1,6 +1,6 @@
 <launch>
   <!-- start map_server with laas_adream map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream_new.yaml"/>
 
   <!-- start acml for localization -->
   <!-- <node name="amcl" pkg="amcl" type="amcl">
