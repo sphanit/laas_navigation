@@ -1,4 +1,4 @@
-transform_tolerance: 0.2
+transform_tolerance: 0.8
 sim_time: 1.7
 sim_granularity: 0.025
 dwa: true

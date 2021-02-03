@@ -1,5 +1,5 @@
-publish_frequency: 0.1
-update_frequency: 0.1
+publish_frequency: 10
+update_frequency: 10
 global_frame: map
 robot_base_frame: base_link
 rolling_window: false
@@ -8,7 +8,8 @@ plugins:
   - {name: static_map, type: "costmap_2d::StaticLayer"}
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
   - {name: inflater, type: "costmap_2d::InflationLayer"}
-#  - {name: hanp, type: "hanp_layer::HANPLayer"}
+  # - {name: human_layers_1, type: "human_layers::HumanVisibilityLayer"}
+  # - {name: human_layers_2, type: "human_layers::StaticHumanLayer"}
 obstacles:
   observation_sources: /scan
   /scan: {data_type: LaserScan, sensor_frame: base_laser_link, expected_update_rate: 0.3, marking: true, clearing: true}
