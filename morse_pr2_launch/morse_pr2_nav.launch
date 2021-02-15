@@ -26,8 +26,8 @@
     <param name="velscale_mul" value="2.0"/>
   </node>
 
-  <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen">-->
-  <node pkg="move_base" type="move_base" name="move_base_node" output="screen" >
+  <!--<node launch-prefix="gdbserver :2000" pkg="move_base" type="move_base" name="move_base_node" output="screen" launch-prefix="gdb -ex run -(-)args"> -->
+  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
     <!-- load additional move_base params -->
     <rosparam file="$(find laas_navigation)/morse_pr2_move_base_config/move_base_params.yaml" command="load" />
 
