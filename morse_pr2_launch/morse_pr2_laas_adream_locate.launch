@@ -1,7 +1,7 @@
 <launch>
   <!-- start map_server with laas_adream map -->
   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/laas_adream_new.yaml"/> -->
-  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/crowd.yaml"/> -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/crowd_new.yaml"/> -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find laas_navigation)/maps/narrow.yaml"/>
 
   <!-- start acml for localization -->
